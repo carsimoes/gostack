@@ -1,27 +1,23 @@
 import { Router } from 'express';
-import {uuid } from 'uuidv4'
+import { startOfHour, parseISO } from 'date-fns'; 
+import AppointmentsRepository from '../repositories/AppointmentsRepository';
+
 const appointmentsRouter = Router();
+const appointmentsRepository = new AppointmentsRepository();
 
-const appointments = [];
-
-// {
-// 	'provider': 'Carlos',
-// 	'date': '{% now 'iso-8601', '' %}'
-// }
 appointmentsRouter.post('/', (request, response)=>{
-    const {  provider,date } = request.body;
+    const { provider, date } = request.body;
 
-    //console.log(request.body);
+    const parsedDate = startOfHour(parseISO(date));
 
-    const appointment ={
-        id:uuid(),
-        provider,
-        date,
+    const findAppointmentInSamedate = appointmentsRepository.findByDate(parsedDate);
+
+    if(findAppointmentInSamedate){
+        return response.status(400).json({message: 'This appointment is alreadt booked.'});
     }
 
-    //console.log(appointment);
-    appointments.push(appointment);
-    
+    const appointment = appointmentsRepository.create(provider, parsedDate);
+
     return response.json(appointment);
 });
 
