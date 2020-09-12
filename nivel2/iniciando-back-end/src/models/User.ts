@@ -15,7 +15,7 @@ class User {
     password: string;
 
     @CreateDateColumn()    
-    created_ad: Date;
+    created_at: Date;
 
     @UpdateDateColumn()
     updated_at: Date;
