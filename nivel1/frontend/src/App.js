@@ -6,7 +6,6 @@ import car from './assets/car.jpg';
 
 import Header from './components/Header';
 
-
 //estado e imutabilidade
 
 function App() {
