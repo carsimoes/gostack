@@ -5,9 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var routes_1 = __importDefault(require("./routes"));
+var cors = require("cors");
+// import cors from "cors";
 var app = express_1.default();
+app.use(express_1.default.json());
+app.use(cors());
 app.use(routes_1.default);
-app.use(express_1.default.json);
+//app.use(cors());
 // app.get('/', (request, response)=> {
 //     return response.json('hello d');
 // })

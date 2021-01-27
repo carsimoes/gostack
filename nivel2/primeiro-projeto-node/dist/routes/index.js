@@ -7,13 +7,4 @@ var express_1 = require("express");
 var appointments_routes_1 = __importDefault(require("./appointments.routes"));
 var routes = express_1.Router();
 routes.use('/appointments', appointments_routes_1.default);
-// routes.post('/users', (request, response)=> {
-//     const temp = request.body;
-//     const { name, email } = temp ;
-//     const user = {
-//         name,
-//         email,
-//     }
-//     return response.json(user);
-// });
 exports.default = routes;
