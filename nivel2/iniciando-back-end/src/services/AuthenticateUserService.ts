@@ -42,7 +42,6 @@ class AuthencicateUserService{
             user,
             token
         }
-
     }
 }
 
