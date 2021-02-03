@@ -1,8 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
 import Dashboard from '../pages/Dashboard';
 import Repository from '../pages/Repository';
+
+// <Switch> //garante que apenas uma rota seja exibida
 
 const Routes: React.FC = () => {
   return (
