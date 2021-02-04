@@ -5,6 +5,7 @@ import api from '../../services/api';
 import logoImg from '../../assets/logo.svg';
 import { Title, Form, Error, Repositories } from './styles';
 
+// colcoar a tipagem só do que for utilizado
 interface Repository {
   full_name: string;
   description: string;
